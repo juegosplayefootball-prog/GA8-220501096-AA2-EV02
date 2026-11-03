@@ -1,0 +1,164 @@
+body { font-family: sans-serif; background: #e8f5e9; margin: 0; padding: 10px; min-height: 100vh; font-size: 16px; overflow-x: hidden; }
+.container { max-width: 1400px; margin: auto; padding-top: 20px; width: 100%; box-sizing: border-box; }
+.form-card { background: rgba(255, 255, 255, 0.85); padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); backdrop-filter: blur(5px); width: 100%; max-width: 100%; box-sizing: border-box; }
+input, select, button { width: 100%; padding: 12px; margin: 8px 0; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; font-size: 16px; }
+button { background: #2e7d32; color: white; border: none; cursor: pointer; font-weight: bold; font-size: 16px; }
+button:hover { background: #1b5e20; }
+.link { color: #2e7d32; cursor: pointer; text-decoration: underline; font-size: 16px; }
+
+/* Dashboard */
+.dash-header { background: #1b5e20; color: white; padding: 15px 20px; display: flex; flex-direction: column; gap: 10px; justify-content: space-between; align-items: flex-start; border-radius: 10px 10px 0 0; font-size: 18px; width: 100%; box-sizing: border-box; }
+@media (min-width: 600px) {
+    .dash-header { flex-direction: row; align-items: center; font-size: 20px; }
+}
+.btn-logout { width: auto; background: #c62828; padding: 6px 15px; margin: 0; }
+.dash-nav { display: flex; flex-wrap: wrap; background: #388e3c; padding: 10px; gap: 8px; width: 100%; box-sizing: border-box; }
+.dash-nav button { background: rgba(255,255,255,0.2); flex: 1 1 45%; font-size: 14px; margin: 0; }
+@media (min-width: 768px) {
+    .dash-nav button { flex: 1; font-size: 16px; }
+}
+.dash-nav button:hover { background: white; color: #1b5e20; }
+.module-card { background: white; padding: 15px; border-radius: 0 0 10px 10px; width: 100%; box-sizing: border-box; overflow-x: hidden; }
+@media (min-width: 600px) {
+    .module-card { padding: 30px; }
+}
+.grid-form { display: grid; grid-template-columns: 1fr; gap: 12px; background: #f1f8e9; padding: 15px; border-radius: 8px; width: 100%; box-sizing: border-box; }
+@media (min-width: 768px) {
+    .grid-form { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); padding: 25px; }
+}
+.data-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px; display: block; overflow-x: auto; white-space: nowrap; box-sizing: border-box; }
+@media (min-width: 768px) {
+    .data-table { display: table; white-space: normal; font-size: 16px; }
+}
+.data-table th, td { border-bottom: 1px solid #ddd; padding: 12px; text-align: left; }
+.data-table th { background: #f1f8e9; }
+.btn-delete { background: #d32f2f; padding: 5px; width: auto; }
+#videoFondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow: auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 95%;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+}
+
+/* Semáforo de Estados */
+.status-semaphore {
+    padding: 6px 12px;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 14px;
+}
+
+.status-semaphore.verde { background: #4caf50; }
+.status-semaphore.amarillo { background: #ff9800; }
+.status-semaphore.rojo { background: #f44336; }
+
+/* Botones de acción */
+.btn-insumos, .btn-labores {
+    background: #2196f3;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 4px;
+}
+
+.btn-insumos:hover, .btn-labores:hover, .btn-edit:hover {
+    background: #1976d2;
+}
+
+.btn-edit {
+    background: #ffa726;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 4px;
+}
+
+/* Estilos para campos de área */
+#crop-area, #crop-area-hectares {
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+#crop-area-hectares {
+    border-top: 1px solid #ddd;
+    padding-top: 8px;
+}
+
+/* Estilos para Warehouse */
+.low-stock {
+    background-color: #ffebee !important; /* Rojo claro */
+}
+
+.expiring-soon {
+    background-color: #fff3e0 !important; /* Naranja claro */
+}
+
+/* Botón de sonido */
+.btn-sonido {
+    position: fixed !important;
+    bottom: 10px !important;
+    right: 10px !important;
+    width: auto !important;
+    padding: 10px 15px !important;
+    font-size: 14px;
+    background: rgba(46, 125, 50, 0.9) !important;
+    border: 1px solid rgba(46, 125, 50, 1) !important;
+    border-radius: 25px !important;
+    z-index: 1000 !important;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.btn-sonido:hover {
+    background: rgba(46, 125, 50, 1) !important;
+    transform: scale(1.05);
+}
+```eof
+
+¡Ya tienes tu diseño listo! Te he adaptado tu propio código de CSS añadiéndole reglas responsivas (como `overflow-x: hidden`, acomodación automática del menú superior, tablas deslizables y contenedores adaptados al ancho del teléfono) para que mantengas tu estilo exacto pero **sin que se vuelva a salir de la pantalla**.
+
+Copia todo ese código actualizado, reemplázalo en tu archivo `styles.css`, guarda con `Ctrl + S` y vuelve a probar tu app en Android Studio. ¡Se verá impecable!
